@@ -1,11 +1,11 @@
 package ru.netology.repository;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.TicketInformation;
+import static org.junit.jupiter.api.Assertions.*;
 
-class TicketsRepositoryTest {
+public class TicketsRepositoryTest {
     private TicketsRepository repository = new TicketsRepository();
 
     private TicketInformation first = new TicketInformation(1, 1_000, "ABA", "OMS", 120);
@@ -18,21 +18,20 @@ class TicketsRepositoryTest {
         repository.add(first);
         repository.add(second);
         repository.add(third);
-        repository.add(fourth);
     }
 
     @Test
     void shouldGetFour() {
 
-        TicketInformation[] expected = new TicketInformation[]{first, second, third, fourth};
+        TicketInformation[] expected = new TicketInformation[]{first, second, third};
         TicketInformation[] actual = repository.getAll();
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldRemoveById() {
-        int id = 2;
-        TicketInformation[] expected = new TicketInformation[]{first, third, fourth};
+        int id = 3;
+        TicketInformation[] expected = new TicketInformation[]{first, second};
         TicketInformation[] actual = repository.removeById(id);
         assertArrayEquals(expected, actual);
     }

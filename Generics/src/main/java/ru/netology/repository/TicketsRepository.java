@@ -3,7 +3,6 @@ package ru.netology.repository;
 import ru.netology.domain.TicketInformation;
 
 public class TicketsRepository {
-
     private TicketInformation[] items = new TicketInformation[]{};
 
     public void add(TicketInformation item) {
